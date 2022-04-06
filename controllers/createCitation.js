@@ -9,7 +9,7 @@ const createCitation =(req, res, next) => {
         .collection('citations')
         .insertOne({        
             content: citation.content,
-            author: citation.autheur
+            author: citation.author
         })
         .then(result => {
             res.redirect('/api/citations');

@@ -11,7 +11,7 @@ const updateCitation =(req, res, next) => {
         .collection('citations')
         .updateOne({_id: id}, {$set:{
             content: citation.content,
-            author: citation.autheur,
+            author: citation.author,
         }})
         .then(result => {
             res.redirect('/api/citations');
