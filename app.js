@@ -40,16 +40,6 @@ app.get("/api/citation/", (req, res) => {
 const citations = require('./routes/routes');
 app.use('/api/citations', citations);
 
-
-// app.use((error, req, res, next) => {
-//     if (res.headerSent) {
-//       return next(error);
-//     }
-//     res.status(error.code || 500)
-//     res.json({ message: error.message || 'Une erreur inconnue est survenue' });
-//     res.json
-//   });
-  
   //Acces au serveur + check avant si la bdd est bien connectée
   db.initDb((err, db) => {
     if (err) {
