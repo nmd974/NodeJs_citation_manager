@@ -12,10 +12,10 @@ npm install
 
 ## 1
 Créer un fichier .env à la racine et renseigner les informations ci-dessous : 
-PORT=
-DB_USER=
-DB_PASSWORD=
-DB_NAME=
+- PORT=
+- DB_USER=
+- DB_PASSWORD=
+- DB_NAME=
 
 npm start.
 
