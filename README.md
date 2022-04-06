@@ -8,11 +8,30 @@ Utiliser Mongo Atlas pour héberger gratuitement un base de données mongodb.
 
 npm install
 
+2 options de lancement :
+
+## 1
 Créer un fichier .env à la racine et renseigner les informations ci-dessous : 
 PORT=
 DB_USER=
 DB_PASSWORD=
 DB_NAME=
+
+npm start.
+
+## 2
+Vous pouvez utiliser nodemon pour que les pages se rechargent directement.
+Créer un fichier nodemon.json à la racine.
+Rajouter les informations ci-dessous :
+{
+    "env": {
+        "DB_USER": "",
+        "DB_PASSWORD": "",
+        "DB_NAME" : ""
+    }
+}
+
+npm run dev
 # LIBRARIES UTILISEES
 express
 body-parser
