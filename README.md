@@ -33,9 +33,9 @@ Rajouter les informations ci-dessous :
 
 npm run dev
 # LIBRARIES UTILISEES
-express
-body-parser
-path
-nodemon
-mongodb
-dotenv
+- express
+- body-parser
+- path
+- nodemon
+- mongodb
+- dotenv
