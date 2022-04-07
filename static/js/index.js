@@ -58,8 +58,16 @@ jQuery.extend(jQuery.validator.messages, {
 //GESTION DU FORMULAIRE
 //******************************************************************* */
 $(document).ready(function(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $("#return_btn").remove();
+    }
     $("#submit_form_quote").prop("disabled", false);
-    $("#tags").chosen({height: "100px", no_results_text: "Aucun résultat"}); 
+    $("#tags").select2({
+        placeholder: "Ajoutez des tags",
+        allowClear: true,
+        tags: true,
+        language: "fr"
+    });
 
     if($("#author").val().length > 0){
         $("#author_string").html(`${$("#author").val().length} /100 caractères`);
@@ -99,6 +107,9 @@ $(document).ready(function(){
     $("#submit_form_quote").on('click', function(){
         submit_form();
     });
+
+    //Gestion de l'ajout d'un tags
+    // $("#create_tag")
 
 });
 

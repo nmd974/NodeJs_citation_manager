@@ -10,20 +10,26 @@
       <th scope="col">#</th>
       <th scope="col">Citation</th>
       <th scope="col">Auteur</th>
+      <th scope="col">Tags</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% for(var i = 0; i < citations.length; i++) {%>
-      <tr>
-        <th scope="row"><%= i + 1 %></th>
-        <td><%= citations[i].content %></td>
-        <td><%= citations[i].author %></td>
-        <td>
-          <a class="btn btn-primary" href="/citation/update/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-pencil"></i></a>
-          <a class="btn btn-danger" href="/api/citations/delete/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-trash"></i></a>
-        </td>
-      </tr>
+    <% if (citations.length > 0) { %>
+      <% for(var i = 0; i < citations.length; i++) {%>
+        <tr>
+          <th scope="row"><%= i + 1 %></th>
+          <td><%= citations[i].content %></td>
+          <td><%= citations[i].author %></td>
+          <td><%= citations[i].tags %></td>
+          <td>
+            <a class="btn btn-primary" href="/citation/update/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-pencil"></i></a>
+            <a class="btn btn-danger" href="/api/citation/delete/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-trash"></i></a>
+          </td>
+        </tr>
       <% } %>
+    <%} else { %>
+      <tr><td colspan="5" class="text-center">Aucun résultat</td></tr>
+    <% } %>
     </tbody>
   </table>

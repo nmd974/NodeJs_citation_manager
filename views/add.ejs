@@ -2,32 +2,35 @@
   <h1>Ajouter une citation</h1>
   <a type="button" class="btn btn-dark" href="/">
     <i class="fa-solid fa-arrow-left"></i>
-    <span>Retour</span>
+    <span id="return_btn">Retour</span>
   </a>
 </div>
-
 <form action="/api/citation/create" method="POST" class="needs-validation" id="form_quote" novalidate>
   <div class="mb-3">
     <div class="form-floating">
       <input type="text" class="form-control" id="content" placeholder="Veuillez saisir la citation" name="content" required>
       <label for="content">Citation</label>
     </div>
-    <div class="text-dark" id="content_string"><small>0/500 caractères</small></div>
+    <div class="text-dark d-flex justify-content-end" id="content_string"><small>0/500 caractères</small></div>
   </div>
   <div class="mb-3">
     <div class="form-floating">
       <input type="text" class="form-control" id="author" placeholder="Veuillez saisir le nom de l'auteur" name="author" required>
       <label for="author">Auteur</label>
     </div>
-    <div class="text-dark" id="author_string"><small>0/100 caractères</small></div>
+    <div class="text-dark d-flex justify-content-end" id="author_string"><small>0/100 caractères</small></div>
   </div>
-  <div class="d-flex justify-content-betwenn align-items-center">
-    <select class="form-select" data-placeholder="Selectionnez les tags correspondants ou créez en un nouveau" name="tags[]" id="tags" multiple>
-      <option value="1">Amour</option>
-      <option value="2">Vie</option>
+  <div class="d-flex align-items-center mb-2">
+    <i class="fa-solid fa-circle-info icone_info text-primary"></i>
+    <small>Vous pouvez ajouter des tags existants ou les créer</small>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <select class="form-select" name="tags[]" id="tags" multiple>
+      <% for(var i = 0; i < tags.length; i++) {%>
+      <option value="<%= tags[i].label %>"><%= tags[i].label.toUpperCase() %></option>
+      <% } %>
     </select>
   </div>
-
   <div class="d-flex justify-content-end mt-5">
     <button type="button" class="btn btn-success" id="submit_form_quote" disabled>
       <i class="fa-solid fa-plus"></i>
@@ -35,9 +38,9 @@
     </button>
   </div>
 </form>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- <li class="select2-results__option" id="select2-tags-result-8p3y-1" role="option" aria-selected="false" data-select2-id="select2-tags-result-8p3y-1">Amour</li> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="/static/js/index.js"></script>

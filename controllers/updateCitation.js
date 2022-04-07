@@ -4,7 +4,7 @@ const { ObjectId } = require("mongodb");
 
 const updateCitation =(req, res, next) => {
     let citation = req.body;
-    const id = ObjectID(req.params.id);
+    const id = ObjectId(req.params.id);
 
     try{
         db.getDb()

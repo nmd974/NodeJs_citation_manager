@@ -8,12 +8,7 @@ const deleteCitation = require('../controllers/deleteCitation');
 
 //WEB
 router.get('/citation/update/:id', updateCitation.getCitationById);
-router.get('/citation/create', (req, res) => {
-    res.render('add',{                
-        title: "Créer une citation", 
-        layout: './layouts/mid-width'
-    });
-});
+router.get('/citation/create', createCitation.getAllTags);
 
 //API
 router.get('/', getAllCitations.getAllCitations);

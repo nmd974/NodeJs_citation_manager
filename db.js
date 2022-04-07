@@ -19,6 +19,7 @@ const initDb = callback => {
         }
         console.log("Base de donnée connectée");
         _db = db.db(dbName);
+        
         return callback(null, _db);
     }
 }

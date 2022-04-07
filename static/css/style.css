@@ -17,6 +17,11 @@ footer {
     color: red;
 }
 
-.chosen-choices{
-    min-height:70px;
+.icone_info{
+    margin-right: 10px;
+}
+
+small{
+    font-style: italic;
+    font-size: 12px;
 }
