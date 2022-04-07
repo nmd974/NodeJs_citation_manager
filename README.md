@@ -59,5 +59,7 @@ npm run dev
 # AMELIORATIONS
 - [] Afficher des modals pour modifier et supprimer une citation
 - [] Remettre correctement les method des formulaires
-- [] Ajouter les thématiques des citations
-- [] Ajouter la validation des données des formulaires
+- [x] Ajouter les thématiques des citations
+- [x] Ajouter la validation des données des formulaires
+- [] Ajouter la validation des données des formulaires cote back
+- [] Ajouter une recherche sur (selon soit tags soit dans le contenu de la citation)
