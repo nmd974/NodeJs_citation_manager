@@ -41,7 +41,9 @@ const getCitationById = (req, res, next) => {
         })
         .then(result => {
             res.render('update', {
-                citation: citations
+                citation: citations,
+                title: "Modifier une citation", 
+                layout: './layouts/mid-width'
             });
         })
         .catch(err => {

@@ -13,9 +13,10 @@ const getAllCitations = (req, res, next) => {
             
         })
         .then(result => {
-            console.log(citations[0].content);
             res.render('liste', {
-                citations: citations
+                citations: citations,
+                title: "Liste des citations", 
+                layout: './layouts/full-width'
             });
             // res.status(201).json({citations});
         });

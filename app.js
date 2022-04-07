@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
 
 //Rajout pour lire le fichier .env
 require('dotenv').config()
@@ -15,7 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
   }));
-  
+
+//Récupération des fichiers statics
+app.use('/static', express.static(path.join(__dirname, 'static')));
+
 //Définition des headers
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,12 +32,14 @@ app.use((req, res, next) => {
     next();
   });
 
-//Au lancement de l'appplication on affiche la vue liste
-app.set('view engine', 'ejs');//On indique que l'on va utiliser ejs
-app.set('views', path.resolve( __dirname, 'views') ); // the views folder for the *.ejs files
+//Gestion du templating
+app.use(expressLayouts);
+app.set('layout', './layouts/full-width');
+app.set('view engine', 'ejs');
+app.set('views', path.resolve( __dirname, 'views') );
  
 app.get("/api/citation/", (req, res) => {
-    res.render('liste');
+    res.render('liste', {title: "Liste des citations", layout: './layouts/full-width'});
 });
 
 //ROUTING

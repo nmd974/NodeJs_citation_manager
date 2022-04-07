@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <title>Add</title>
-</head>
-<body class="container">
-    <main>
-        <h1>Ajouter une citation</h1>
-        <form action="/api/citations/create" method="POST">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="content" placeholder="test" name="content">
-                <label for="content">Citation</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="author" placeholder="toto" name="author">
-                <label for="author">Auteur</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
-    </form>
-</main>
-</body>
-</html>
+<div class="d-flex justify-content-between align-items-center mb-5">
+  <h1>Ajouter une citation</h1>
+  <a type="button" class="btn btn-dark" href="/api/citations">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Retour</span>
+  </a>
+</div>
+
+<form action="/api/citations/create" method="POST">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="content" placeholder="test" name="content">
+    <label for="content">Citation</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" id="author" placeholder="toto" name="author">
+    <label for="author">Auteur</label>
+  </div>
+  <div class="d-flex justify-content-end mt-5">
+    <button type="submit" class="btn btn-success">
+      <i class="fa-solid fa-plus"></i>
+      <span>Ajouter</span>
+    </button>
+  </div>
+</form>

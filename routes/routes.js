@@ -10,7 +10,10 @@ router.get('/', getAllCitations.getAllCitations);
 
 router.post('/create', createCitation.createCitation);
 router.get('/create', (req, res) => {
-    res.render('add',{});
+    res.render('add',{                
+        title: "Créer une citation", 
+        layout: './layouts/mid-width'
+    });
 });
 
 router.post('/update/:id', updateCitation.updateCitation);
