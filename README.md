@@ -39,7 +39,10 @@ npm run dev
 - nodemon
 - mongodb
 - dotenv
+- ejs
+- express-ejs-layouts
 
 # AMELIORATIONS
 - [] Afficher des modals pour modifier et supprimer une citation
 - [] Remettre correctement les method des formulaires
+- [] Ajouter les thématiques des citations
