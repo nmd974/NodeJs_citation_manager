@@ -12,3 +12,11 @@ footer {
     width: 100%;
     overflow: hidden;
 }
+
+.error{
+    color: red;
+}
+
+.chosen-choices{
+    min-height:70px;
+}

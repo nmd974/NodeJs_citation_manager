@@ -4,6 +4,20 @@ Ce projet permet de réaliser simplement un CRUD avec node js et mongodb.
 # BDD
 Utiliser Mongo Atlas pour héberger gratuitement un base de données mongodb.
 
+citations : [
+    {
+        _id : ObjectId,
+        content : string,
+        author : string,
+        tags:[ObjectId, ObjectId]
+    }
+]
+tags : [
+    {
+        _id : ObjectId,
+        label : string
+    }
+]
 # LANCEMENT
 
 npm install
@@ -46,3 +60,4 @@ npm run dev
 - [] Afficher des modals pour modifier et supprimer une citation
 - [] Remettre correctement les method des formulaires
 - [] Ajouter les thématiques des citations
+- [] Ajouter la validation des données des formulaires

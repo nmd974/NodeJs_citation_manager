@@ -1,4 +1,9 @@
-<h1>Liste des citations</h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Liste des citations</h1>
+  <a type="button" class="btn btn-success text-white rounded-circle" href="/citation/create">
+    <i class="fa-solid fa-plus"></i>
+  </a>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -15,8 +20,8 @@
         <td><%= citations[i].content %></td>
         <td><%= citations[i].author %></td>
         <td>
-          <a class="btn btn-primary" href="/api/citations/update/<%= citations[i]._id %>" role="button">Modifier</a>
-          <a class="btn btn-danger" href="/api/citations/delete/<%= citations[i]._id %>" role="button">Supprimer</a>
+          <a class="btn btn-primary" href="/citation/update/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-pencil"></i></a>
+          <a class="btn btn-danger" href="/api/citations/delete/<%= citations[i]._id %>" role="button"><i class="fa-solid fa-trash"></i></a>
         </td>
       </tr>
       <% } %>

@@ -16,9 +16,8 @@ const getAllCitations = (req, res, next) => {
             res.render('liste', {
                 citations: citations,
                 title: "Liste des citations", 
-                layout: './layouts/full-width'
+                layout: './layouts/mid-width'
             });
-            // res.status(201).json({citations});
         });
 
     } catch (error) {

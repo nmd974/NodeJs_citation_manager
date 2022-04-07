@@ -1,16 +1,16 @@
 const db = require("../db");
-const { ObjectID } = require("mongodb");
+const { ObjectId } = require("mongodb");
 
 
 const deleteCitation =(req, res, next) => {
-    const id = ObjectID(req.params.id);
+    const id = ObjectId(req.params.id);
 
     try{
         db.getDb()
         .collection('citations')
         .deleteOne({_id: id})
         .then(result => {
-            res.redirect('/api/citations');
+            res.redirect('/');
         })
         .catch(err => {
             res.status(202).json({error : err});

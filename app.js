@@ -37,14 +37,13 @@ app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
 app.set('views', path.resolve( __dirname, 'views') );
- 
-app.get("/api/citation/", (req, res) => {
-    res.render('liste', {title: "Liste des citations", layout: './layouts/full-width'});
-});
 
 //ROUTING
 const citations = require('./routes/routes');
-app.use('/api/citations', citations);
+app.use('/', citations);
+app.get("/", (req, res) => {
+   res.render('liste', {title: "Liste des citations", layout: './layouts/mid-width'});
+});
 
   //Acces au serveur + check avant si la bdd est bien connectée
   db.initDb((err, db) => {

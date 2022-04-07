@@ -3,7 +3,8 @@ const db = require("../db");
 
 const createCitation =(req, res, next) => {
     let citation = req.body;
-    // console.log(req.body);
+    //Verification avant insertion
+    console.log(citation.tags);
     try{
         db.getDb()
         .collection('citations')
@@ -12,7 +13,7 @@ const createCitation =(req, res, next) => {
             author: citation.author
         })
         .then(result => {
-            res.redirect('/api/citations');
+            res.redirect('/');
         })
         .catch(err => {
             res.status(202).json({error : err});
