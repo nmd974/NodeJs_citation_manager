@@ -107,7 +107,7 @@ const findTagDb = async (tags) => {
     for (let i = 0; i < tags.length; i++) {
         const element = tags[i];
         const element_bdd = await db.getDb().collection('tags').find({label: `${element.toLowerCase()}`}).toArray();
-        if(element_bdd.length > 0){
+        if(element_bdd.length < 1){
             const element_add = await db.getDb().collection('tags').insertOne({label : element.toLowerCase()});
             tags_id.push(element_add.insertedId.toString());
         }else{
