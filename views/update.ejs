@@ -5,7 +5,6 @@
     <span id="return_btn">Retour</span>
   </a>
 </div>
-
 <form action="/api/citation/update/<%= citation[0]._id %>" method="POST" class="needs-validation" id="form_quote" novalidate>
   <div class="mb-3">
     <div class="form-floating">
@@ -27,8 +26,13 @@
   </div>
   <div class="d-flex justify-content-between align-items-center">
     <select class="form-select" name="tags[]" id="tags" multiple>
-      <option value="Amour">Amour</option>
-      <option value="Vie">Vie</option>
+      <% for(var i = 0; i < tags.length; i++) {%>
+        <% if (tags_selected.includes(tags[i].label)) { %>
+          <option value="<%= tags[i].label %>" selected><%= tags[i].label.toUpperCase() %></option>
+        <%} else { %>
+          <option value="<%= tags[i].label %>"><%= tags[i].label.toUpperCase() %></option>
+        <% } %>
+      <% } %>
     </select>
   </div>
   <div class="d-flex justify-content-end mt-5">
@@ -40,6 +44,7 @@
 </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="/static/js/index.js"></script>

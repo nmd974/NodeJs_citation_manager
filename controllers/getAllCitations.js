@@ -12,7 +12,7 @@ const getAllCitations = async (req, res, next) => {
                 if(element.content !== null){
                     if(element.tags.length > 0){
                         const tmp = await getTagById(tags_values);
-                        element.tags = tmp.join(",");
+                        element.tags = tmp.join(", ");
                     }else{
                         element.tags = "";
                     }

@@ -39,7 +39,7 @@ const createCitation = async (req, res, next) => {
     //Verification si les tags existent
     if(tags.length > 0){
         try{
-            tags_id = await finTagDb(tags);
+            tags_id = await findTagDb(tags);
         }catch(error){
             res.status(500).json({
                 success: false,
@@ -72,19 +72,18 @@ const createCitation = async (req, res, next) => {
     }
 }
 
-const finTagDb = async (tags) => {
+const findTagDb = async (tags) => {
     let tags_id = [];
     for (let i = 0; i < tags.length; i++) {
         const element = tags[i];
         const element_bdd = await db.getDb().collection('tags').find({label: `${element.toLowerCase()}`}).toArray();
-        if(element_bdd.length > 0){
+        if(element_bdd.length < 1){
             const element_add = await db.getDb().collection('tags').insertOne({label : element.toLowerCase()});
             tags_id.push(element_add.insertedId.toString());
         }else{
             tags_id.push(element_bdd[0]._id.toString());
         }
     }
-    console.log("TAGSS: " + tags_id);
     return tags_id;
 }
 
