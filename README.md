@@ -57,8 +57,8 @@ npm run dev
 - express-ejs-layouts
 
 # AMELIORATIONS
-- [] Afficher des modals pour modifier et supprimer une citation
-- [] Remettre correctement les method des formulaires
+- [] Afficher des modal pour confirmer la suppression d'une citation
+- [] Remettre correctement les methodes des formulaires
 - [x] Ajouter les thématiques des citations
 - [x] Ajouter la validation des données des formulaires
 - [] Ajouter la validation des données des formulaires cote back
