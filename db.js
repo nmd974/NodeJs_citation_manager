@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.c7wsf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 const dbName = process.env.DB_NAME;
-
+const schemas = require('./schemas');
 let _db;
 
 const initDb = callback => {
@@ -13,12 +13,16 @@ const initDb = callback => {
     }
 
     MongoClient.connect(url, connected);
-    function connected(err, db) {
+    async function connected(err, db) {
         if (err) {
             return callback(err);
         }
         console.log("Base de donnée connectée");
-        _db = db.db(dbName);
+        _db = await db.db(dbName);
+        // _db = await db.db(dbName);
+
+        // await schemas.createQuotesSchema(_db);
+        // await schemas.createTagsSchema(_db);
         
         return callback(null, _db);
     }

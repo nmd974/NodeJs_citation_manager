@@ -1,6 +1,6 @@
 const db = require("../db");
 const { ObjectId } = require("mongodb");
-
+// const { validator, validationResult  } = require("express-validator");
 
 const getAllTags = (req, res, next) => {
     let tags = [];
@@ -34,8 +34,31 @@ const createCitation = async (req, res, next) => {
     let citation = req.body;
     let tags = citation.tags;
     let tags_id = [];
-    //TODO Verification avant insertion
+
+    // //Verification avant insertion
+    // validator('content')
+    //     .not()
+    //     .isEmpty()
+    //     .trim()
+    //     .escape()
+    //     .isLength({min: 10, max : 500});
+    // validator('author')
+    //     .not()
+    //     .isEmpty()
+    //     .trim()
+    //     .escape()
+    //     .isLength({min: 2, max : 100})
+    //     .matches(/[a-zA-Z ]+/);
+
     
+    // validator('tags').isArray({ max: 10 });
+
+    // const errors = validationResult(req);
+    // console.log(errors);
+
+    // if(validatorResult)[
+
+    // ]
     //Verification si les tags existent
     if(tags.length > 0){
         try{

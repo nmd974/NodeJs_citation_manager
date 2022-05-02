@@ -63,3 +63,4 @@ npm run dev
 - [x] Ajouter la validation des données des formulaires
 - [] Ajouter la validation des données des formulaires cote back
 - [] Ajouter une recherche sur (selon soit tags soit dans le contenu de la citation)
+- [] Ajouter une pagination sur la recherche et la liste des citations

@@ -11,7 +11,7 @@ jQuery.validator.addMethod(
          else if (regexp.global)
             regexp.lastIndex = 0;
             return this.optional(element) || regexp.test(value);
-     },"erreur expression reguliere"
+     },"Synthaxe incorrecte"
 );
 
 const formQuoteValidation = () => {
@@ -106,6 +106,7 @@ $(document).ready(function(){
 
     $("#submit_form_quote").on('click', function(){
         submit_form();
+        // $("#form_quote").submit();
     });
 
     //Gestion de l'ajout d'un tags
